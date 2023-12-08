@@ -1,10 +1,11 @@
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useDispatch } from "react-redux";
-import { add } from "../stores/reducer";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, removeFavorite } from "../stores/favoritsReducer";
 
 export default function CardMovie({ props }) {
   const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.whishlist.favorites);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 my-3 mx-3">
@@ -26,13 +27,25 @@ export default function CardMovie({ props }) {
           </div>
         </div>
 
-        <button
-          className="mt-5 bg-red-400 p-3 rounded-full text-white font-semibold shadow-lg hover:bg-red-500"
-          onClick={() => dispatch(add(props))}
-        >
-          <FontAwesomeIcon icon={faHeart} className="mx-2" />
-          <span>FAVORITOS</span>
-        </button>
+        {!favorites.includes(props) && (
+          <button
+            className="mt-5 bg-red-400 p-3 rounded-full text-white font-semibold shadow-lg hover:bg-red-500"
+            onClick={() => dispatch(addFavorite(props))}
+          >
+            <FontAwesomeIcon icon={faHeart} className="mx-2" />
+            <span>FAVORITES</span>
+          </button>
+        )}
+
+        {favorites.includes(props) && (
+          <button
+            className="mt-5 bg-blue-400 p-3 rounded-full text-white font-semibold shadow-lg hover:bg-blue-500"
+            onClick={() => dispatch(removeFavorite(props))}
+          >
+            <FontAwesomeIcon icon={faTrash} className="mx-2" />
+            <span>REMOVE</span>
+          </button>
+        )}
       </div>
     </div>
   );

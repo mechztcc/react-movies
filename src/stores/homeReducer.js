@@ -91,9 +91,7 @@ export const homeSlice = createSlice({
     ],
   },
   reducers: {
-    add: (state, action) => {
-      console.log(action.payload);
-    },
+ 
   },
 });
 
