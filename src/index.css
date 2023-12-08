@@ -1,6 +1,6 @@
 
 
-
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -19,4 +19,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.title {
+  font-family: 'Rubik Bubbles';
 }
