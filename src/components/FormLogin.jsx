@@ -60,7 +60,7 @@ export default function FormLogin() {
           >
             <FontAwesomeIcon
               icon={isPass ? faEye : faEyeSlash}
-              className="text-red-400"
+              className="text-red-400 hover:text-red-500"
             />
           </button>
         </div>
