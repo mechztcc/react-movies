@@ -23,11 +23,11 @@ export default function Navbar() {
       <div className="flex w-full bg-zinc-200 h-20 justify-between items-center p-3 shadow-lg">
         <Link to="/">
           <h1 className="font-bold text-3xl title text-red-400 cursor-pointer hover:text-red-500">
-            MOVIES
+            MO
           </h1>
         </Link>
 
-        <div className="flex">
+        <div className="flex ">
           <div className="relative">
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
