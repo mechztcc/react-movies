@@ -9,12 +9,10 @@ import store from "./stores/store";
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<Home />}></Route>
-          <Route exact path="/login" element={<Login />}></Route>
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Home />}></Route>
+        <Route exact path="/login" element={<Login />}></Route>
+      </Routes>
     </Provider>
   );
 }
