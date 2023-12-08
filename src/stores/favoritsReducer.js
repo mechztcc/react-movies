@@ -11,15 +11,25 @@ export const favoritesSlice = createSlice({
         return;
       }
       state.favorites.push(action.payload);
+      const favs = JSON.stringify(state.favorites);
+      localStorage.setItem("favs", favs);
+    },
+
+    addMultiple: (state, action) => {
+      state.favorites = action.payload;
+      console.log(state.favorites);
     },
 
     removeFavorite: (state, { payload }) => {
       state.favorites = state.favorites.filter((movie) => {
         return movie.id != payload.id;
       });
+      const favs = JSON.stringify(state.favorites);
+      localStorage.setItem("favs", favs);
     },
   },
 });
 
 export default favoritesSlice.reducer;
-export const { addFavorite, removeFavorite } = favoritesSlice.actions;
+export const { addFavorite, removeFavorite, addMultiple } =
+  favoritesSlice.actions;
