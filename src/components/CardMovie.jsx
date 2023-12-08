@@ -15,7 +15,7 @@ export default function CardMovie({ props }) {
       return movie.id == props.id;
     });
     setIsFavorite(isFav.length ? true : false);
-  });
+  }, [favorites]);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 my-3 mx-3">

@@ -3,10 +3,14 @@ import {
   faDoorOpen,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
+import { filterByName } from "../stores/homeReducer";
 
 export default function Navbar() {
   const { pathname } = useLocation();
+
+  const dispatch = useDispatch();
 
   function isLoginPage() {
     return pathname.includes("login");
@@ -29,7 +33,11 @@ export default function Navbar() {
               icon={faMagnifyingGlass}
               className="absolute right-2 bottom-2 text-red-400 bg-red-200 p-2 rounded-full hover:text-white hover:bg-red-400 cursor-pointer"
             />
-            <input type="text" className="p-3 rounded-full outline-zinc-300" />
+            <input
+              type="text"
+              className="p-3 rounded-full outline-zinc-300"
+              onChange={(el) => dispatch(filterByName(el.target.value))}
+            />
           </div>
 
           <Link to="/login">

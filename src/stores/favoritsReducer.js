@@ -17,7 +17,6 @@ export const favoritesSlice = createSlice({
 
     addMultiple: (state, action) => {
       state.favorites = action.payload;
-      console.log(state.favorites);
     },
 
     removeFavorite: (state, { payload }) => {
