@@ -1,14 +1,18 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import { add } from "../stores/reducer";
 
 export default function CardMovie() {
+  const dispatch = useDispatch();
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 my-3 mx-3">
       <div className="col-span-1 items-center flex justify-center">
         <img
           src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Oppenheimer_%28film%29.jpg/220px-Oppenheimer_%28film%29.jpg"
           alt=""
-          className="rounded-3xl"
+          className="rounded-3xl w-1/2"
         />
       </div>
       <div className="col-span-1 flex flex-col justify-between">
@@ -29,7 +33,10 @@ export default function CardMovie() {
           </div>
         </div>
 
-        <button className="mt-3 bg-red-400 p-3 rounded-full text-white font-semibold shadow-lg hover:bg-red-500">
+        <button
+          className="mt-5 bg-red-400 p-3 rounded-full text-white font-semibold shadow-lg hover:bg-red-500"
+          onClick={() => dispatch(add({ id: 11 }))}
+        >
           <FontAwesomeIcon icon={faPlay} className="mx-2" />
           <span>ASSISTIR</span>
         </button>

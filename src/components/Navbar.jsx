@@ -7,7 +7,7 @@ export default function Navbar() {
       <h1 className="font-bold text-3xl">MOVIES</h1>
 
       <div className="relative">
-        <FontAwesomeIcon icon={faMagnifyingGlass} className="absolute right-2 bottom-2 text-red-400 bg-red-200 p-2 rounded-full"/>
+        <FontAwesomeIcon icon={faMagnifyingGlass} className="absolute right-2 bottom-2 text-red-400 bg-red-200 p-2 rounded-full hover:text-white hover:bg-red-400 cursor-pointer"/>
         <input type="text" className="p-3 rounded-full outline-zinc-300" />
       </div>
     </div>
