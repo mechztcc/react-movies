@@ -20,7 +20,13 @@ export default function CardMovie({ props }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 my-3 mx-3">
       <div className="col-span-1 items-center flex justify-center">
-        <img src={props.image} alt="" className="rounded-3xl w-1/2" />
+        <img
+          src={props.image}
+          alt=""
+          className={`rounded-3xl w-1/2  shadow-lg ${
+            !isFavorite ? "hover:shadow-red-300" : "hover:shadow-blue-300"
+          }`}
+        />
       </div>
       <div className="col-span-1 flex flex-col justify-between">
         <div className="mt-10">
@@ -39,7 +45,7 @@ export default function CardMovie({ props }) {
 
         {!isFavorite && (
           <button
-            className="mt-5 bg-red-400 p-3 rounded-full text-white font-semibold shadow-lg hover:bg-red-500"
+            className="mt-5 bg-red-400 p-3 rounded-full text-white font-semibold shadow-lg hover:bg-red-500 hover:shadow-red-300 "
             onClick={() => dispatch(addFavorite(props))}
           >
             <FontAwesomeIcon icon={faHeart} className="mx-2" />
@@ -49,7 +55,7 @@ export default function CardMovie({ props }) {
 
         {isFavorite && (
           <button
-            className="mt-5 bg-blue-400 p-3 rounded-full text-white font-semibold shadow-lg hover:bg-blue-500"
+            className="mt-5 bg-blue-400 p-3 rounded-full text-white font-semibold shadow-lg hover:bg-blue-500a hover:shadow-blue-300"
             onClick={() => dispatch(removeFavorite(props))}
           >
             <FontAwesomeIcon icon={faTrash} className="mx-2" />
