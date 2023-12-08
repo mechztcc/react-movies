@@ -3,7 +3,7 @@ import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { add } from "../stores/reducer";
 
-export default function CardMovie() {
+export default function CardMovie({props}) {
   const dispatch = useDispatch();
 
   return (
@@ -17,18 +17,17 @@ export default function CardMovie() {
       </div>
       <div className="col-span-1 flex flex-col justify-between">
         <div className="mt-10">
-          <h1 className="font-semibold">OPPENHEIMER</h1>
+          <h1 className="font-semibold">{props.name}</h1>
           <span className="text-zinc-500 mt-3">
-            A história do cientista americano J. Robert Oppenheimer e o seu
-            papel no desenvolvimento da bomba atômica.
+            { props.description }
           </span>
 
           <div className="flex mt-3">
             <p className="bg-blue-600 rounded-full text-center text-white font-semibold px-3">
-              Drama
+              { props.category }
             </p>
             <p className="bg-blue-600 rounded-full text-center text-white font-semibold mx-1 px-3">
-              2h 22min
+              { props.duration }
             </p>
           </div>
         </div>
