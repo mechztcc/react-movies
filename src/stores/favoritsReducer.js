@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logRoles } from "@testing-library/react";
 
 export const favoritesSlice = createSlice({
   name: "favorites",
